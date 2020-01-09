@@ -1,0 +1,43 @@
+{
+ "manifest_version": 2,
+ "name":"facebook color changer",
+ "version":"1.0.0",
+ "description":"A simple facebook color changer",
+
+ "icons": {
+   "128":"icons/fb1_128.png",
+   "64":"icons/fb1_64.png",
+   "32": "icons/fb1_32.png"
+ },
+
+  "page_action": {
+    "default_popup": "popup.html",
+    "default_title": "facebook color changer"
+  },
+
+  "background": {
+    "scripts": ["background.js"],
+    "persistent":true
+  },
+
+  "content_scripts": [
+    {
+      "matches":["https://www.facebook.com/*"],
+      "js":["content.js"],
+      "css":["styles.css"]
+    }
+  ],
+
+  "oauth2": {
+    "client_id": "442278865703-q2hq2vgvk461dfsge37sku1g95472mat.apps.googleusercontent.com",
+    "scopes": ["https://www.googleapis.com/auth/userinfo.email"]
+  },
+
+  "permissions" : [
+    "tabs",
+    "identity",
+    "https://www.facebook.com/*",
+    "storage"
+  ]
+
+}
